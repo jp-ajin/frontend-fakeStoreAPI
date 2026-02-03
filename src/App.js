@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+//import Users from "./pages/users";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { LoginPage } from "./pages/login/login";
+import { Dashboard } from "./pages/dashboard/dashboard";
+import "./App.css";
+import { ProtectedRoute } from "./api/protectedRoute";
+import { VistaUsuarios } from "./pages/usuarios/vistaUsuarios";
+import { MiPerfil } from "./pages/miPerfil/miPerfil";
+import { VistaProductos } from "./pages/productos/vistaProductos";
+import { Welcome } from "./pages/welcome/welcome";
+import { AddProduct } from "./pages/addProducts/addProduct";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<BrowserRouter>
+			<Routes>
+				<Route
+					path="/dashboard"
+					element={
+						<ProtectedRoute>
+							<Dashboard />
+						</ProtectedRoute>
+					}
+				>
+					<Route index element={<Welcome />}></Route>
+					<Route path="productos" element={<VistaProductos />}></Route>
+					<Route path="usuarios" element={<VistaUsuarios />}></Route>
+					<Route path="addProduct" element={<AddProduct />}></Route>
+				</Route>
+				<Route path="/" element={<LoginPage />}></Route>
+				<Route path="/miPerfil" element={<MiPerfil />}></Route>
+			</Routes>
+		</BrowserRouter>
+	);
 }
 
 export default App;
