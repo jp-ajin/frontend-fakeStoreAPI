@@ -12,7 +12,7 @@ import { AddProduct } from "./pages/addProducts/addProduct";
 
 function App() {
 	return (
-		<BrowserRouter>
+		<BrowserRouter basename="/frontend-fakeStoreAPI">
 			<Routes>
 				<Route
 					path="/dashboard"
