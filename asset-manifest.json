@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/jp-ajin/frontend-fakeStoreAPI.git/static/css/main.a6e1ca5a.css",
+    "main.js": "/jp-ajin/frontend-fakeStoreAPI.git/static/js/main.bd63d99c.js",
+    "static/js/453.5ab30ff2.chunk.js": "/jp-ajin/frontend-fakeStoreAPI.git/static/js/453.5ab30ff2.chunk.js",
+    "index.html": "/jp-ajin/frontend-fakeStoreAPI.git/index.html",
+    "main.a6e1ca5a.css.map": "/jp-ajin/frontend-fakeStoreAPI.git/static/css/main.a6e1ca5a.css.map",
+    "main.bd63d99c.js.map": "/jp-ajin/frontend-fakeStoreAPI.git/static/js/main.bd63d99c.js.map",
+    "453.5ab30ff2.chunk.js.map": "/jp-ajin/frontend-fakeStoreAPI.git/static/js/453.5ab30ff2.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a6e1ca5a.css",
+    "static/js/main.bd63d99c.js"
+  ]
+}
