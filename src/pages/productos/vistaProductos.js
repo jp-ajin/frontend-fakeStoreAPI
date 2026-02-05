@@ -10,7 +10,6 @@ function VistaProductos() {
 		async function fetchProducts() {
 			try {
 				const resProducts = await getProduct();
-				console.log("🚀 ~ fetchProducts ~ resProducts:", resProducts);
 				setProducts(resProducts);
 			} catch (err) {
 				setError(err.message);

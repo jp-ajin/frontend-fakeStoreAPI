@@ -32,18 +32,17 @@ function AddProduct() {
 	useEffect(() => {
 		async function loadImages() {
 			const data = await getProduct();
-			console.log("🚀 ~ loadImages ~ data:", data);
 			setProducts(data);
 
 			//creacion de array con url imagenes
 			const images = data.map((res) => res.image);
-			console.log("🚀 ~ loadImages ~ images:", images);
 			setImageURL(images);
 		}
 		loadImages();
 	}, []);
 
 	const handleChange = (e) => {
+		console.log(e.target.value);
 		var name = e.target.name;
 		var value = e.target.value;
 		var newFormData = Object.assign({}, formData);
@@ -69,10 +68,10 @@ function AddProduct() {
 
 		const newData = {
 			id: newId,
-			title: formData.NombreProducto,
-			price: Number(formData.Precio),
-			description: formData.Descripcion,
-			category: formData.Categoria,
+			title: formData.name,
+			price: Number(formData.price),
+			description: formData.description,
+			category: formData.category,
 			image: formData.image,
 			rating: {
 				rate: 0,
@@ -87,20 +86,18 @@ function AddProduct() {
 
 	return (
 		<div className="test p-6 space-y-4 md:space-y-6 sm:p-8">
-			<h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-[#1f2937]">
+			<h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl text-[#1f2937]">
 				Crear Productos
 			</h1>
 			<form className="space-y-4 md:space-y-6">
 				{array.map((input, index) => (
 					<div className="form-group" key={index}>
-						<label
-							htmlFor={input.label}
-							className="block mb-2 text-sm font-medium text-gray-900 dark:text-[#1f2937]"
-						>
+						<label className="block mb-2 text-sm font-medium text-[#1f2937]">
 							{input.label}
 						</label>
 						<input
-							className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:outline-none focus:ring-blue-500 focus:border-blue-600 block w-full p-2.5 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+							className="border border-gray-400 text-[#1f2937] rounded-lg focus:outline-none focus:ring-blue-500 focus:border-blue-600 block w-full p-2.5"
+							id={input.name}
 							name={input.name}
 							required=""
 							type={input.type}
@@ -109,14 +106,11 @@ function AddProduct() {
 						/>
 					</div>
 				))}
-				<label
-					htmlFor="Imagen"
-					className="block mb-2 text-sm font-medium text-gray-900 dark:text-[#1f2937]"
-				>
+				<label className="block mb-2 text-sm font-medium text-gray-900 dark:text-[#1f2937]">
 					Imagen
 				</label>
 				<select
-					className="bg-gray-50 border border-gray-300 rounded-lg p-2.5 w-full"
+					className="border border-gray-400 text-[#1f2937] rounded-lg p-2.5 w-full"
 					name="image"
 					onChange={handleChange}
 				>
